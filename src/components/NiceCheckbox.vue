@@ -89,6 +89,7 @@ export default {
 
       .label-title {
         margin: 0px 5px;
+        line-height: 0;
       }
     }
 
@@ -98,7 +99,7 @@ export default {
       visibility: hidden;
 
       &:checked + label:before {
-        background: #4caf50;
+        background: #42D843;
         border: none;
       }
 

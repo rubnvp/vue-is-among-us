@@ -1,34 +1,42 @@
 <template>
   <div class="app">
     <header class="main-header">
-      Vue - Pokedex
+      Vue is
+      <img class="image-header" src="/images/among-us.jpg" alt="among us">
     </header>
-    <characters-view />
+    <crewmates-view />
   </div>
 </template>
 
 <script>
-import CharactersView from './pages/CharactersView.vue'
+import CrewmatesView from './pages/CrewmatesView.vue'
 
 export default {
   name: 'App',
   components: {
-    CharactersView,
+    CrewmatesView,
   }
 }
 </script>
 
 <style lang="scss">
 @import './assets/main.scss';
-
 .app {
   .main-header {
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: 700;
+    font-size: 45px;
     text-transform: uppercase;
-    background: #42b883;
+    background: #000;
     color: white;
-    font-size: 35px;
     padding: 0.5em;
-    font-weight: 400;
+    display: flex;
+    align-items: center;
+    word-spacing: 10px;
+  }
+  .image-header {
+    height: 50px;
+    margin-left: 10px;
   }
 }
 </style>

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 *,
@@ -8,7 +9,7 @@
 }
 
 :focus {
-  outline: none;
+  outline: none; // avoid this
 }
 
 body {
@@ -17,6 +18,8 @@ body {
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
+  background-color: #383438;
+  color: white;
 }
 
 header, article, nav, aside {

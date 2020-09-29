@@ -8,3 +8,13 @@ export const TYPE_COLOR = {
   "normal": "#A8A878",
   "electric": "#F8D030",
 };
+
+export const COLOR_RGB = {
+  orange: '#EE7D0C',
+  yellow: '#F7F656',
+  pink: '#ED55BC',
+  green: '#0D812B',
+  blue: '#132FD2',
+  red: '#C61215',
+  black:'#3E484D',
+};

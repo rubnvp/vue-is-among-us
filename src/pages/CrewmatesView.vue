@@ -8,12 +8,12 @@
       <p class="checkboxes-list-title">Hat</p>
       <div class="checkboxes-list">
         <nice-checkbox
-          v-model="selectedCrewmateHats"
+          v-model="selectedHats"
           :value="false"
           label="🚫 No hat"
         />
         <nice-checkbox
-          v-model="selectedCrewmateHats"
+          v-model="selectedHats"
           :value="true"
           label="🧢 With hat"
         />
@@ -22,7 +22,7 @@
       <div class="checkboxes-list">
         <nice-checkbox
           v-for="(rgb, color) in COLOR_RGB" :key="color"
-          v-model="selectedCrewmateColors"
+          v-model="selectedColors"
           :value="color"
           :color="rgb"
           :label="color"
@@ -64,8 +64,8 @@ export default {
     return {
       searchText: '',
       COLOR_RGB,
-      selectedCrewmateHats: [],
-      selectedCrewmateColors: [],
+      selectedHats: [],
+      selectedColors: [],
       crewmates: [],
     };
   },
@@ -74,12 +74,12 @@ export default {
       return this.crewmates
         .filter(crewmate => crewmate.name.toLowerCase().includes(this.searchText.toLowerCase())) // filter by name (searchBox)
         .filter(crewmate => { // filter by crewmate hat
-          if (this.selectedCrewmateHats.length === 0) return true; // no checked checkbox means no filter
-          return this.selectedCrewmateHats.includes(crewmate.hasHat);
+          if (this.selectedHats.length === 0) return true; // no checked checkbox means no filter
+          return this.selectedHats.includes(crewmate.hasHat);
         })
         .filter(crewmate => { // filter by crewmate color
-          if (this.selectedCrewmateColors.length === 0) return true; // no checked checkbox means no filter
-          return this.selectedCrewmateColors.includes(crewmate.color);
+          if (this.selectedColors.length === 0) return true; // no checked checkbox means no filter
+          return this.selectedColors.includes(crewmate.color);
         });
     },
   },

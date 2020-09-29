@@ -3,8 +3,8 @@
     <input
       type="text"
       v-bind="$attrs"
-      v-on="$listeners"
-      @input="emitInput"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
     <span class="focus-border"><i></i></span>
   </div>
@@ -14,14 +14,7 @@
 export default {
   name: 'NiceInput',
   inheritAttrs: false,
-  model: {
-    event: 'update',
-  },
-  methods: {
-    emitInput(event) {
-      this.$emit('update', event.target.value);
-    }
-  }
+  props: ['modelValue'],
 }
 </script>
 

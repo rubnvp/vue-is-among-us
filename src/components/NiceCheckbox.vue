@@ -5,7 +5,6 @@
       type="checkbox"
       :value="value"
       v-bind="$attrs"
-      v-on="$listeners"
       v-model="proxyChecked"
     />
     <label :for="`checkbox-${uid}`">
@@ -19,12 +18,8 @@
 export default {
   name: 'NiceCheckbox',
   inheritAttrs: false,
-  model: {
-    prop: 'checked',
-    event: 'update',
-  },
   props: {
-    checked: {
+    modelValue: {
       type: [Boolean, Array],
       default: false,
     },
@@ -45,10 +40,10 @@ export default {
   computed: {
     proxyChecked: {
       get() {
-        return this.checked;
+        return this.modelValue;
       },
       set(val) {
-        this.$emit('update', val);
+        this.$emit('update:modelValue', val);
       },
     },
   },

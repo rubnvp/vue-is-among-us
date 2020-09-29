@@ -1,8 +1,9 @@
 <template>
   <div class="app">
     <header class="main-header">
-      Vue is
+      Vue 3 is
       <img class="image-header" src="/images/among-us.jpg" alt="among us">
+      ...
     </header>
     <crewmates-view />
   </div>

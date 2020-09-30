@@ -46,7 +46,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {ref, computed, readonly} from 'vue';
 
 import {COLOR_RGB as CONST_COLOR_RGB} from "@/common/constants";
@@ -63,43 +63,34 @@ export default {
     NiceCheckbox,
     CrewCard,
   },
-  setup() {
-    const COLOR_RGB = readonly(CONST_COLOR_RGB);
-    const {searchText, filterBySearchText} = useSearchText();
-    const {selectedHats, filterBySelectedHats} = useSelectedHats();
-    const {selectedColors, filterBySelectedColors} = useSelectedColors();
-
-    const crewmates = ref([]);
-
-    const filteredCrewmates = computed(() => {
-      return crewmates.value
-        .filter(filterBySearchText)
-        .filter(filterBySelectedHats)
-        .filter(filterBySelectedColors);
-    });
-
-    function removeCrewmate(crewmateToDelete) {
-      crewmates.value = crewmates.value
-        .filter(crewmate => crewmate !== crewmateToDelete);
-    }
-
-    fetch('/crewmates.json')
-      .then(response => response.json())
-      .then(crewmatesList => {
-        crewmates.value = crewmatesList;
-      });
-
-    return {
-      COLOR_RGB,
-      searchText,
-      selectedHats,
-      selectedColors,
-      crewmates,
-      filteredCrewmates,
-      removeCrewmate,
-    };
-  },
 };
+
+export const COLOR_RGB = readonly(CONST_COLOR_RGB);
+
+const {searchText, filterBySearchText} = useSearchText();
+const {selectedHats, filterBySelectedHats} = useSelectedHats();
+const {selectedColors, filterBySelectedColors} = useSelectedColors();
+export {searchText, selectedHats, selectedColors};
+
+export const crewmates = ref([]);
+
+export const filteredCrewmates = computed(() => {
+  return crewmates.value
+    .filter(filterBySearchText)
+    .filter(filterBySelectedHats)
+    .filter(filterBySelectedColors);
+});
+
+export function removeCrewmate(crewmateToDelete) {
+  crewmates.value = crewmates.value
+    .filter(crewmate => crewmate !== crewmateToDelete);
+}
+
+fetch('/crewmates.json')
+  .then(response => response.json())
+  .then(crewmatesList => {
+    crewmates.value = crewmatesList;
+  });
 </script>
 
 <style lang="scss">

@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <header class="main-header">
-      Vue 3 is
+      Vue 2 is
       <img class="image-header" src="/images/among-us.jpg" alt="among us">
       ...
     </header>

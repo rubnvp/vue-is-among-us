@@ -23,7 +23,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### package.json migration
+### package.json migration from v2 to v3
 - "vue": "^2.6.11" 👉 "vue": "^3.0.0-0"
 - "eslint-plugin-vue": "^6.2.2" 👉  "eslint-plugin-vue": "^7.0.0-0"
 - "sass-loader": "^10.0.2" 👉 "sass-loader": "^8.0.2"

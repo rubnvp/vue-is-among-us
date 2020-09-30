@@ -47,7 +47,10 @@
 </template>
 
 <script>
-import {COLOR_RGB} from "@/common/constants";
+import {ref, computed, readonly} from 'vue';
+
+import {COLOR_RGB as CONST_COLOR_RGB} from "@/common/constants";
+import {useSearchText, useSelectedHats, useSelectedColors} from '@/common/useFilters';
 
 import NiceInput from '@/components/NiceInput.vue';
 import NiceCheckbox from '@/components/NiceCheckbox.vue';
@@ -60,39 +63,41 @@ export default {
     NiceCheckbox,
     CrewCard,
   },
-  data() {
-    return {
-      searchText: '',
-      COLOR_RGB,
-      selectedHats: [],
-      selectedColors: [],
-      crewmates: [],
-    };
-  },
-  computed: {
-    filteredCrewmates() {
-      return this.crewmates
-        .filter(crewmate => crewmate.name.toLowerCase().includes(this.searchText.toLowerCase())) // filter by name (searchBox)
-        .filter(crewmate => { // filter by crewmate hat
-          if (this.selectedHats.length === 0) return true; // no checked checkbox means no filter
-          return this.selectedHats.includes(crewmate.hasHat);
-        })
-        .filter(crewmate => { // filter by crewmate color
-          if (this.selectedColors.length === 0) return true; // no checked checkbox means no filter
-          return this.selectedColors.includes(crewmate.color);
-        });
-    },
-  },
-  methods: {
-    removeCrewmate(crewmateToDelete) {
-      this.crewmates = this.crewmates
+  setup() {
+    const COLOR_RGB = readonly(CONST_COLOR_RGB);
+    const {searchText, filterBySearchText} = useSearchText();
+    const {selectedHats, filterBySelectedHats} = useSelectedHats();
+    const {selectedColors, filterBySelectedColors} = useSelectedColors();
+
+    const crewmates = ref([]);
+
+    const filteredCrewmates = computed(() => {
+      return crewmates.value
+        .filter(filterBySearchText)
+        .filter(filterBySelectedHats)
+        .filter(filterBySelectedColors);
+    });
+
+    function removeCrewmate(crewmateToDelete) {
+      crewmates.value = crewmates.value
         .filter(crewmate => crewmate !== crewmateToDelete);
-    },
-  },
-  created() {
+    }
+
     fetch('/crewmates.json')
       .then(response => response.json())
-      .then(crewmates => this.crewmates = crewmates);
+      .then(crewmatesList => {
+        crewmates.value = crewmatesList;
+      });
+
+    return {
+      COLOR_RGB,
+      searchText,
+      selectedHats,
+      selectedColors,
+      crewmates,
+      filteredCrewmates,
+      removeCrewmate,
+    };
   },
 };
 </script>

@@ -1,22 +1,22 @@
 <template>
-  <div class="crewmate-card">
+  <div class="player-card">
     <div class="background-wrapper">
       <div :style="{'background-color': backgroundColor}" />
     </div>
-    <span class="remove-crewmate" @click="remove">
+    <span class="remove-player" @click="remove">
       <i class="material-icons">close</i>
     </span>
     <div class="image-wrapper">
-      <img class="crewmate-image" :src="crewmate.image" :alt="crewmate.name" />
+      <img class="player-image" :src="player.image" :alt="player.name" />
     </div>
-    <div class="crewmate-title">{{ crewmate.name }}</div>
+    <div class="player-title">{{ player.name }}</div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    crewmate: Object,
+    player: Object,
     backgroundColor: {
       type: String,
       default: '#000',
@@ -24,15 +24,15 @@ export default {
   },
   methods: {
     remove() {
-      this.$emit("remove", this.crewmate);
+      this.$emit("remove", this.player);
     }
   }
 };
 </script>
 
 <style lang="scss">
-/* Crewmate card */
-.crewmate-card {
+/* Player card */
+.player-card {
   margin: 5px;
   position: relative;
   height: 170px;
@@ -61,7 +61,7 @@ export default {
     flex-grow: 1;
   }
 
-  .remove-crewmate {
+  .remove-player {
     display: none;
     position: absolute;
     top: 0;
@@ -69,11 +69,11 @@ export default {
     cursor: pointer;
   }
 
-  &:hover .remove-crewmate {
+  &:hover .remove-player {
     display: inline-block;
   }
 
-  .remove-crewmate:hover {
+  .remove-player:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
 
@@ -84,13 +84,13 @@ export default {
     align-items: center;
   }
 
-  .crewmate-image {
+  .player-image {
     height: 110px;
     border-radius: 50%;
     border: 4px solid black;
   }
 
-  .crewmate-title {
+  .player-title {
     height: 40px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;

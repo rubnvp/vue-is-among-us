@@ -1,7 +1,7 @@
 <template>
   <div class="characters-view">
-    <!-- Crewmate Filters -->
-    <aside class="crewmate-filters">
+    <!-- Player Filters -->
+    <aside class="player-filters">
       <!-- Searchbox -->
       <nice-input v-model="searchText" placeholder="Search by name" />
       <!-- Checkboxes -->
@@ -30,17 +30,17 @@
       </div>
     </aside>
 
-    <!-- Crewmates list -->
+    <!-- Players list -->
     <main class="main-view">
-      <transition-group name="bounce" tag="article" class="crewmates-list">
-        <!-- Crewmate Card -->
-        <crew-card
-          v-for="crewmate in filteredCrewmates"
-          :key="crewmate.name"
-          :crewmate="crewmate"
-          :background-color="COLOR_RGB[crewmate.color]"
-          @remove="removeCrewmate"
-        ></crew-card>
+      <transition-group name="bounce" tag="article" class="players-list">
+        <!-- Player Card -->
+        <player-card
+          v-for="player in filteredPlayers"
+          :key="player.name"
+          :player="player"
+          :background-color="COLOR_RGB[player.color]"
+          @remove="removePlayer"
+        ></player-card>
       </transition-group>
     </main>
   </div>
@@ -51,14 +51,14 @@ import {COLOR_RGB} from "@/common/constants";
 
 import NiceInput from '@/components/NiceInput.vue';
 import NiceCheckbox from '@/components/NiceCheckbox.vue';
-import CrewCard from '@/components/CrewCard.vue';
+import PlayerCard from '@/components/PlayerCard.vue';
 
 export default {
   name: 'CharactersView',
   components: {
     NiceInput,
     NiceCheckbox,
-    CrewCard,
+    PlayerCard,
   },
   data() {
     return {
@@ -66,33 +66,33 @@ export default {
       COLOR_RGB,
       selectedHats: [],
       selectedColors: [],
-      crewmates: [],
+      players: [],
     };
   },
   computed: {
-    filteredCrewmates() {
-      return this.crewmates
-        .filter(crewmate => crewmate.name.toLowerCase().includes(this.searchText.toLowerCase())) // filter by name (searchBox)
-        .filter(crewmate => { // filter by crewmate hat
+    filteredPlayers() {
+      return this.players
+        .filter(player => player.name.toLowerCase().includes(this.searchText.toLowerCase())) // filter by name (searchBox)
+        .filter(player => { // filter by player hat
           if (this.selectedHats.length === 0) return true; // no checked checkbox means no filter
-          return this.selectedHats.includes(crewmate.hasHat);
+          return this.selectedHats.includes(player.hasHat);
         })
-        .filter(crewmate => { // filter by crewmate color
+        .filter(player => { // filter by player color
           if (this.selectedColors.length === 0) return true; // no checked checkbox means no filter
-          return this.selectedColors.includes(crewmate.color);
+          return this.selectedColors.includes(player.color);
         });
     },
   },
   methods: {
-    removeCrewmate(crewmateToDelete) {
-      this.crewmates = this.crewmates
-        .filter(crewmate => crewmate !== crewmateToDelete);
+    removePlayer(playerToDelete) {
+      this.players = this.players
+        .filter(player => player !== playerToDelete);
     },
   },
   created() {
-    fetch('/crewmates.json')
+    fetch('/players.json')
       .then(response => response.json())
-      .then(crewmates => this.crewmates = crewmates);
+      .then(players => this.players = players);
   },
 };
 </script>
@@ -107,7 +107,7 @@ export default {
     height: calc(100vh - 102px);
   }
 
-  .crewmate-filters {
+  .player-filters {
     flex: 0 0 250px;
     display: flex;
     flex-direction: column;
@@ -126,7 +126,7 @@ export default {
     overflow-y: auto;
   }
 
-  .crewmates-list {
+  .players-list {
     flex: 1;
     display: flex;
     flex-wrap: wrap;

@@ -2,189 +2,189 @@
   {
     "id": 1,
     "name": "Ruberube",
-    "image": "images/crewmates/crewmate-1.png",
+    "image": "images/players/crewmate-1.png",
     "color": "orange",
     "hasHat": false
   },
   {
     "id": 2,
     "name": "Nagema",
-    "image": "images/crewmates/crewmate-2.png",
+    "image": "images/players/crewmate-2.png",
     "color": "yellow",
     "hasHat": true
   },
   {
     "id": 3,
     "name": "Rousioo",
-    "image": "images/crewmates/crewmate-3.png",
+    "image": "images/players/crewmate-3.png",
     "color": "pink",
     "hasHat": true
   },
   {
     "id": 4,
     "name": "Javipopotter",
-    "image": "images/crewmates/crewmate-4.png",
+    "image": "images/players/crewmate-4.png",
     "color": "pink",
     "hasHat": true
   },
   {
     "id": 5,
     "name": "IlloJuan",
-    "image": "images/crewmates/crewmate-5.png",
+    "image": "images/players/crewmate-5.png",
     "color": "yellow",
     "hasHat": true
   },
   {
     "id": 6,
     "name": "PAPO",
-    "image": "images/crewmates/crewmate-6.png",
+    "image": "images/players/crewmate-6.png",
     "color": "orange",
     "hasHat": true
   },
   {
     "id": 7,
     "name": "DON IBAI",
-    "image": "images/crewmates/crewmate-7.png",
+    "image": "images/players/crewmate-7.png",
     "color": "pink",
     "hasHat": false
   },
   {
     "id": 8,
     "name": "Reven",
-    "image": "images/crewmates/crewmate-8.png",
+    "image": "images/players/crewmate-8.png",
     "color": "pink",
     "hasHat": true
   },
   {
     "id": 9,
     "name": "Kenkro",
-    "image": "images/crewmates/crewmate-9.png",
+    "image": "images/players/crewmate-9.png",
     "color": "green",
     "hasHat": true
   },
   {
     "id": 10,
     "name": "CarlosR",
-    "image": "images/crewmates/crewmate-10.png",
+    "image": "images/players/crewmate-10.png",
     "color": "blue",
     "hasHat": false
   },
   {
     "id": 11,
     "name": "KUNI",
-    "image": "images/crewmates/crewmate-11.png",
+    "image": "images/players/crewmate-11.png",
     "color": "blue",
     "hasHat": true
   },
   {
     "id": 12,
     "name": "Silithur",
-    "image": "images/crewmates/crewmate-12.png",
+    "image": "images/players/crewmate-12.png",
     "color": "blue",
     "hasHat": true
   },
   {
     "id": 13,
     "name": "Pickles",
-    "image": "images/crewmates/crewmate-13.png",
+    "image": "images/players/crewmate-13.png",
     "color": "red",
     "hasHat": true
   },
   {
     "id": 14,
     "name": "Music Man",
-    "image": "images/crewmates/crewmate-14.png",
+    "image": "images/players/crewmate-14.png",
     "color": "red",
     "hasHat": false
   },
   {
     "id": 15,
     "name": "Gams",
-    "image": "images/crewmates/crewmate-15.png",
+    "image": "images/players/crewmate-15.png",
     "color": "black",
     "hasHat": false
   },
   {
     "id": 16,
     "name": "Red Hot",
-    "image": "images/crewmates/crewmate-16.png",
+    "image": "images/players/crewmate-16.png",
     "color": "orange",
     "hasHat": true
   },
   {
     "id": 17,
     "name": "Chili",
-    "image": "images/crewmates/crewmate-17.png",
+    "image": "images/players/crewmate-17.png",
     "color": "red",
     "hasHat": true
   },
   {
     "id": 18,
     "name": "Peppers",
-    "image": "images/crewmates/crewmate-18.png",
+    "image": "images/players/crewmate-18.png",
     "color": "green",
     "hasHat": true
   },
   {
     "id": 19,
     "name": "BarbeQ",
-    "image": "images/crewmates/crewmate-19.png",
+    "image": "images/players/crewmate-19.png",
     "color": "orange",
     "hasHat": true
   },
   {
     "id": 20,
     "name": "Braveheart",
-    "image": "images/crewmates/crewmate-20.png",
+    "image": "images/players/crewmate-20.png",
     "color": "black",
     "hasHat": true
   },
   {
     "id": 21,
     "name": "Braniac",
-    "image": "images/crewmates/crewmate-21.png",
+    "image": "images/players/crewmate-21.png",
     "color": "yellow",
     "hasHat": true
   },
   {
     "id": 22,
     "name": "Explosions",
-    "image": "images/crewmates/crewmate-22.png",
+    "image": "images/players/crewmate-22.png",
     "color": "green",
     "hasHat": true
   },
   {
     "id": 23,
     "name": "In The Sky",
-    "image": "images/crewmates/crewmate-23.png",
+    "image": "images/players/crewmate-23.png",
     "color": "green",
     "hasHat": true
   },
   {
     "id": 24,
     "name": "Ratatat",
-    "image": "images/crewmates/crewmate-24.png",
+    "image": "images/players/crewmate-24.png",
     "color": "red",
     "hasHat": true
   },
   {
     "id": 25,
     "name": "React",
-    "image": "images/crewmates/crewmate-25.png",
+    "image": "images/players/crewmate-25.png",
     "color": "black",
     "hasHat": true
   },
   {
     "id": 26,
     "name": "Angular",
-    "image": "images/crewmates/crewmate-26.png",
+    "image": "images/players/crewmate-26.png",
     "color": "yellow",
     "hasHat": true
   },
   {
     "id": 27,
     "name": "Ember",
-    "image": "images/crewmates/crewmate-27.png",
+    "image": "images/players/crewmate-27.png",
     "color": "black",
     "hasHat": true
   }

@@ -5,17 +5,17 @@
       <img class="image-header" src="/images/among-us.jpg" alt="among us">
       ...
     </header>
-    <crewmates-view />
+    <players-view />
   </div>
 </template>
 
 <script>
-import CrewmatesView from './pages/CrewmatesView.vue'
+import PlayersView from './pages/PlayersView.vue'
 
 export default {
   name: 'App',
   components: {
-    CrewmatesView,
+    PlayersView,
   }
 }
 </script>

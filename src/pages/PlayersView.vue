@@ -1,7 +1,7 @@
 <template>
   <div class="characters-view">
-    <!-- Crewmate Filters -->
-    <aside class="crewmate-filters">
+    <!-- Player Filters -->
+    <aside class="player-filters">
       <!-- Searchbox -->
       <nice-input v-model="searchText" placeholder="Search by name" />
       <!-- Checkboxes -->
@@ -30,17 +30,17 @@
       </div>
     </aside>
 
-    <!-- Crewmates list -->
+    <!-- Players list -->
     <main class="main-view">
-      <transition-group name="bounce" tag="article" class="crewmates-list">
-        <!-- Crewmate Card -->
-        <crew-card
-          v-for="crewmate in filteredCrewmates"
-          :key="crewmate.name"
-          :crewmate="crewmate"
-          :background-color="COLOR_RGB[crewmate.color]"
-          @remove="removeCrewmate"
-        ></crew-card>
+      <transition-group name="bounce" tag="article" class="players-list">
+        <!-- Player Card -->
+        <player-card
+          v-for="player in filteredPlayers"
+          :key="player.name"
+          :player="player"
+          :background-color="COLOR_RGB[player.color]"
+          @remove="removePlayer"
+        ></player-card>
       </transition-group>
     </main>
   </div>
@@ -54,14 +54,14 @@ import {useSearchText, useSelectedHats, useSelectedColors} from '@/common/useFil
 
 import NiceInput from '@/components/NiceInput.vue';
 import NiceCheckbox from '@/components/NiceCheckbox.vue';
-import CrewCard from '@/components/CrewCard.vue';
+import PlayerCard from '@/components/PlayerCard.vue';
 
 export default {
   name: 'CharactersView',
   components: {
     NiceInput,
     NiceCheckbox,
-    CrewCard,
+    PlayerCard,
   },
 };
 
@@ -72,24 +72,24 @@ const {selectedHats, filterBySelectedHats} = useSelectedHats();
 const {selectedColors, filterBySelectedColors} = useSelectedColors();
 export {searchText, selectedHats, selectedColors};
 
-export const crewmates = ref([]);
+export const players = ref([]);
 
-export const filteredCrewmates = computed(() => {
-  return crewmates.value
+export const filteredPlayers = computed(() => {
+  return players.value
     .filter(filterBySearchText)
     .filter(filterBySelectedHats)
     .filter(filterBySelectedColors);
 });
 
-export function removeCrewmate(crewmateToDelete) {
-  crewmates.value = crewmates.value
-    .filter(crewmate => crewmate !== crewmateToDelete);
+export function removePlayer(playerToDelete) {
+  players.value = players.value
+    .filter(player => player !== playerToDelete);
 }
 
-fetch('/crewmates.json')
+fetch('/players.json')
   .then(response => response.json())
-  .then(crewmatesList => {
-    crewmates.value = crewmatesList;
+  .then(playersList => {
+    players.value = playersList;
   });
 </script>
 
@@ -103,7 +103,7 @@ fetch('/crewmates.json')
     height: calc(100vh - 102px);
   }
 
-  .crewmate-filters {
+  .player-filters {
     flex: 0 0 250px;
     display: flex;
     flex-direction: column;
@@ -122,7 +122,7 @@ fetch('/crewmates.json')
     overflow-y: auto;
   }
 
-  .crewmates-list {
+  .players-list {
     flex: 1;
     display: flex;
     flex-wrap: wrap;

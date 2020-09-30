@@ -1,5 +1,11 @@
 # vue-is-among-us
 
+![screensot demo](public/images/screenshot.jpeg "Screenshot Demo")
+
+## Branches
+- master 👉 vue2
+- vue3 👉 vue3
+
 ## Project setup
 ```
 npm install
